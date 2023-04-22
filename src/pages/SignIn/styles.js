@@ -33,7 +33,7 @@ export const Container = styled.div`
 			}
 		}
 
-		> .signup {
+		> .signin {
 			display: flex;
 			flex-direction: column;
 			gap: 3.2rem;
@@ -52,7 +52,7 @@ export const Container = styled.div`
 				flex: 1;
 			}
 
-			> .signup {
+			> .signin {
 				background-color: ${({ theme }) => theme.COLORS.DARK_700};
 				flex: 2;
 				max-width: 47.6rem;

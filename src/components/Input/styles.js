@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 1.6rem;
 
 	> input {
 		width: 100%;
@@ -17,18 +17,13 @@ export const Container = styled.div`
 		border-radius: 8px;
 
 		background-color: ${({ theme }) => theme.COLORS.DARK_900};
+		font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
 		font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
 		color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
-		outline: 1px transparent solid;
-		transition: all 0.3s;
-
-		:focus {
-			outline: 1px solid ${({ theme }) => theme.COLORS.LIGHT_100};
-		}
-
 		::placeholder {
 			color: ${({ theme }) => theme.COLORS.LIGHT_500};
+			font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
 		}
 	}
 `

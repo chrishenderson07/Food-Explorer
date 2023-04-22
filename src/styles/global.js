@@ -1,8 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 
 :root{
   font-size: 62.5%;
@@ -12,6 +13,8 @@ export default createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+
 }
 
   body {
@@ -35,10 +38,25 @@ export default createGlobalStyle`
     line-height: 140%;
   }
 
+  p {
+    font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
+  }
+
   input {
     background: none;
     border: none;
     outline: none;
+  
+  }
+
+  textarea{
+    background-color: transparent;
+    resize: none;
+    border: none;
+
+    &:focus{
+      outline: solid 1px ${({ theme }) => theme.COLORS.LIGHT_600};
+    }
   }
 
   button {
