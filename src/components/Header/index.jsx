@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useAuth } from '../../hooks/auth'
+
 import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 import { Button } from '../Button'
 import { ButtonText } from '../ButtonText'
@@ -13,9 +15,16 @@ import { BsHexagonFill, BsReceipt, BsSearch } from 'react-icons/bs'
 import { RxExit } from 'react-icons/rx'
 
 export function Header() {
-	const [menuOpen, setMenuOpen] = useState(false)
+	const [menuOpen, setMenuOpen] = useState()
 
+	const { signOut, user } = useAuth()
 	const navigate = useNavigate()
+
+	function handleSignOut() {
+		signOut()
+		navigate('/')
+	}
+
 	return (
 		<Container>
 			<nav>
@@ -23,7 +32,9 @@ export function Header() {
 					<div className="hamburger">
 						<HamburgerMenu
 							className="hambMenu"
-							onClick={() => setMenuOpen(!menuOpen)}
+							onClick={() => {
+								setMenuOpen(!menuOpen)
+							}}
 							menuOpen={menuOpen}
 							title="Menu"
 						/>
@@ -55,7 +66,7 @@ export function Header() {
 							title="Sair"
 							className="textExit"
 							onClick={() => {
-								navigate('/')
+								handleSignOut()
 							}}
 						/>
 					</div>
@@ -69,7 +80,7 @@ export function Header() {
 							iconSize="30"
 							iconColor="#065E7C"
 							title="food explorer"
-							onClick={navigate('/')}
+							onClick={() => navigate('/')}
 						/>
 					</div>
 				)}
@@ -125,7 +136,7 @@ export function Header() {
 						Icon={RxExit}
 						iconSize={32}
 						onClick={() => {
-							navigate('/')
+							handleSignOut()
 						}}
 					/>
 				</div>

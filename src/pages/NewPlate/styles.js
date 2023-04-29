@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 export const Container = styled.div`
 	width: 100%;
 	height: 100vh;
@@ -7,12 +8,14 @@ export const Container = styled.div`
 		'header'
 		'content'
 		'footer';
-	grid-area: 'content';
 	grid-template-rows: 10.4rem auto 7.7rem;
 
 	.content {
 		padding: 3.6rem 1.6rem;
 		position: relative;
+
+	grid-area: 'content';
+
 
 		> .backButton {
 			font-family: ${({ theme }) => theme.FONTS.POPPINS_300};
@@ -53,6 +56,7 @@ export const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 2.4rem;
+	grid-area: 'form';
 
 	margin-top: 2.4rem;
 	color: ${({ theme }) => theme.COLORS.LIGHT_300};

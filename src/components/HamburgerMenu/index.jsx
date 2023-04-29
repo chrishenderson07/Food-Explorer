@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import { Container } from './styles'
 
 export function HamburgerMenu({ menuOpen, title, ...rest }) {

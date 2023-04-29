@@ -5,6 +5,7 @@ export const Container = styled.div`
 	width: 100%;
 	height: 7.7rem;
 	padding: 2.5rem 2rem;
+	grid-area: 'footer';
 
 	background-color: ${({ theme }) => theme.COLORS.DARK_600};
 	font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};

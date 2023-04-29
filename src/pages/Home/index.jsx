@@ -1,4 +1,8 @@
-import { Container, Content } from './styles'
+import { useState, useEffect } from 'react'
+
+import { api } from '../../services/api'
+
+import { useNavigate } from 'react-router-dom'
 
 import Carousel from '@itseasy21/react-elastic-carousel'
 
@@ -7,6 +11,8 @@ import { Footer } from '../../components/Footer'
 import { Section } from '../../components/Section'
 import { Card } from '../../components/Card'
 import { Wrapper } from '../../components/Wrapper'
+
+import { Container, Content } from './styles'
 
 import donutsImg from '../../assets/imageHome.png'
 import plateImg from '../../assets/plates/Mask group-2.png'
@@ -18,6 +24,20 @@ export function Home() {
 		{ width: 910, itemsToShow: 3 },
 		{ width: 1200, itemsToShow: 4 },
 	]
+
+	const [plates, setPlates] = useState([])
+	console.log(plates)
+	// const [search, setSearch] = useState('')
+
+	const navigate = useNavigate()
+
+	// useEffect(() => {
+	// 	async function fetchPlates() {
+	// 		const response = await api.get('/plates')
+	// 		setPlates(response.data)
+	// 	}
+	// 	fetchPlates()
+	// }, [])
 
 	return (
 		<Container>

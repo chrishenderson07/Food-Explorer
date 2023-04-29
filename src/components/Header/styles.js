@@ -8,6 +8,7 @@ export const Container = styled.header`
 	color: white;
 	padding: 2.6rem;
 	height: 10.4rem;
+	grid-area: 'header';
 
 	> nav {
 		@media (min-width: 780px) {
