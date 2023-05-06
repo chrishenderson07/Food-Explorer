@@ -18,7 +18,7 @@ export function QuantityBox({}) {
 	}
 
 	return (
-		<Container>
+		<Container className="quantity-box">
 			<button onClick={handleRemoveQuantity}>&minus;</button>
 			<span>{quantity.toString().padStart(2, 0)}</span>
 			<button onClick={handleAddQuantity}>&#43;</button>

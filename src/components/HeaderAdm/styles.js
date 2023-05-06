@@ -86,7 +86,7 @@ export const Container = styled.header`
 			}
 		}
 
-		.cart,
+		.newPlate,
 		#search,
 		.favorites,
 		.orders,
@@ -109,6 +109,7 @@ export const Container = styled.header`
 			grid-area: logo;
 			display: flex;
 			align-items: center;
+			gap: 0.4rem;
 
 			p {
 				font-size: 1.2rem;
@@ -130,7 +131,7 @@ export const Container = styled.header`
 			gap: 3.2rem;
 
 			display: grid;
-			grid-template-areas: 'logo search search search favorites orders button exit';
+			grid-template-areas: 'logo search search search button  button exit';
 
 			#search {
 				display: flex;
@@ -152,10 +153,9 @@ export const Container = styled.header`
 				}
 			}
 
-			.cart {
-				display: inline-block;
-
+			.newPlate {
 				grid-area: button;
+				display: block;
 
 				button {
 					width: 100%;
@@ -164,16 +164,6 @@ export const Container = styled.header`
 
 					margin: 0 auto;
 				}
-			}
-
-			.favorites {
-				grid-area: favorites;
-				display: block;
-			}
-
-			.orders {
-				grid-area: orders;
-				display: block;
 			}
 
 			.exit {

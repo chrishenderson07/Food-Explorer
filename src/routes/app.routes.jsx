@@ -6,6 +6,7 @@ import { Cart } from '../pages/Cart'
 import { Favorites } from '../pages/Favorites'
 import { Orders } from '../pages/Orders'
 import { NewPlate } from '../pages/NewPlate'
+import { EditPlate } from '../pages/EditPlate'
 
 export function AppRoutes() {
 	return (
@@ -23,6 +24,7 @@ export function AppRoutes() {
 				path="/cart"
 				element={<Cart />}
 			/>
+
 			<Route
 				path="/favorites"
 				element={<Favorites />}
@@ -35,6 +37,11 @@ export function AppRoutes() {
 			<Route
 				path="/new-plate"
 				element={<NewPlate />}
+			/>
+
+			<Route
+				path="/edit-plate/:id"
+				element={<EditPlate />}
 			/>
 		</Routes>
 	)

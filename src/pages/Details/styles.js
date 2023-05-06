@@ -66,11 +66,14 @@ export const Container = styled.div`
 
 			.buyWrapper {
 				display: flex;
-				align-items: center;
-
-				button:nth-child(2) {
-					font-size: clamp(0.9rem, 0.2818rem + 2.0909vw, 1.4rem);
+				justify-content: center;
+				margin: 0 auto;
+				button {
+					width: 100%;
 				}
+				/* button:nth-child(2) {
+					font-size: clamp(0.9rem, 0.2818rem + 2.0909vw, 1.4rem);
+				} */
 			}
 		}
 
@@ -87,7 +90,7 @@ export const Container = styled.div`
 
 				.buyWrapper {
 					width: 36rem;
-					margin-top: 2.4rem;
+					margin: 0;
 				}
 			}
 		}

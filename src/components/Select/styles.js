@@ -2,7 +2,12 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	gap: 1.6rem;
+
+	font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
+	color: ${({ theme }) => theme.COLORS.LIGHT_400};
+	font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
 
 	position: relative;
 
@@ -15,6 +20,20 @@ export const Container = styled.div`
 			color: ${({ theme }) => theme.COLORS.LIGHT_100};
 			font-size: 2.4rem;
 		}
+	}
+
+	select {
+		width: 100%;
+		height: 4.8rem;
+		padding: 1.2rem 1.4rem;
+		border-radius: 8px;
+		border: none;
+		outline: none;
+
+		background-color: ${({ theme }) => theme.COLORS.DARK_900};
+		font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
+		font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
+		color: ${({ theme }) => theme.COLORS.LIGHT_100};
 	}
 `
 

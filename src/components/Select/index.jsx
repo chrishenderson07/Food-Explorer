@@ -4,11 +4,19 @@ import { Container, Options, Option, SelectedOption } from './styles'
 
 import { RxCaretDown } from 'react-icons/rx'
 
-export function Select({ placeholder, onChange }) {
+export function Select({ placeholder, onChange, name, title, ...rest }) {
 	const [isOpen, setIsOpen] = useState(false)
-	const [selectedValue, setSelectedValue] = useState(0)
+	const [selectedValue, setSelectedValue] = useState('Pratos Principais')
 
-	const selectedOption = options.find(({ value }) => value === selectedValue)
+	const [categoriesOption, setCategoriesOption] = useState([
+		'Pratos Principais',
+		'Sobremesas',
+		'Drinks',
+	])
+
+	const selectedOption = categoriesOption.find(
+		({ value }) => value === selectedValue,
+	)
 
 	function handleIsOpen(event) {
 		event.preventDefault()
@@ -21,14 +29,38 @@ export function Select({ placeholder, onChange }) {
 	}
 
 	return (
-		<Container isOpen={isOpen}>
-			<SelectedOption>{selectedOption?.label ?? placeholder}</SelectedOption>
+		<Container>
+			<label htmlFor={name}>{title}</label>
 
+			{/* 			<SelectedOption>{selectedOption?.label ?? placeholder}</SelectedOption>
 			<button onClick={handleIsOpen}>
 				<RxCaretDown />
 			</button>
 
-			<Options isOpen={isOpen}>{isOpen && console.log(options)}</Options>
+			{isOpen ? (
+				<Options isOpen={isOpen}>
+					{categoriesOption.map((option) => (
+						<Option>{option}</Option>
+					))}
+				</Options>
+			) : (
+				''
+			)} */}
+
+			<select
+				value={selectedValue}
+				name={name}
+				onChange={() => {
+					changeSelectedValue()
+				}}>
+				{categoriesOption.map((option) => (
+					<option
+						key={option}
+						value={option}>
+						{option}
+					</option>
+				))}
+			</select>
 		</Container>
 	)
 }

@@ -1,14 +1,13 @@
 import { Container, TextBlock } from './styles'
-export function TextArea({ title, placeholder, value }) {
+export function TextArea({ title, placeholder, value, ...rest }) {
 	return (
-		<Container>
+		<Container {...rest}>
 			<label htmlFor={name}>{title}</label>
 
 			<TextBlock
 				placeholder={placeholder}
-				className="description">
-				{value}
-			</TextBlock>
+				className="description"
+				value={value}></TextBlock>
 		</Container>
 	)
 }

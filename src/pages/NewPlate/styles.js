@@ -14,8 +14,7 @@ export const Container = styled.div`
 		padding: 3.6rem 1.6rem;
 		position: relative;
 
-	grid-area: 'content';
-
+		grid-area: 'content';
 
 		> .backButton {
 			font-family: ${({ theme }) => theme.FONTS.POPPINS_300};
@@ -48,6 +47,33 @@ export const Container = styled.div`
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: 1.6rem;
+		}
+	}
+
+	.selectBox {
+		display: flex;
+		flex-direction: column;
+		gap: 1.6rem;
+
+		font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
+		color: ${({ theme }) => theme.COLORS.LIGHT_400};
+		font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
+
+		position: relative;
+
+		width: 100%;
+
+		select {
+			height: 4.8rem;
+			padding: 1.2rem 1.4rem;
+			border-radius: 8px;
+			border: none;
+			outline: none;
+
+			background-color: ${({ theme }) => theme.COLORS.DARK_900};
+			font-size: ${({ theme }) => theme.FONTS_SIZE.DEFAULT_SIZE};
+			font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
+			color: ${({ theme }) => theme.COLORS.LIGHT_100};
 		}
 	}
 `

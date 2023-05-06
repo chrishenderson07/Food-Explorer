@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-	grid-area: footer;
 	width: 100%;
 	height: 7.7rem;
-	padding: 2.5rem 2rem;
+	padding: 2.5rem 1rem;
 	grid-area: 'footer';
 
 	background-color: ${({ theme }) => theme.COLORS.DARK_600};
@@ -29,6 +28,7 @@ export const Container = styled.div`
 	}
 
 	@media (max-width: 375px) {
+		padding: 1.5rem;
 		div {
 			flex-direction: column;
 			align-items: center;

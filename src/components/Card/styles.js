@@ -12,11 +12,13 @@ export const Container = styled.div`
 	align-items: center;
 	text-align: center;
 	gap: 1.2rem;
+	cursor: pointer;
 
 	position: relative;
 
 	.favButton {
 		position: absolute;
+		z-index: 100;
 		right: 15px;
 		top: 0;
 	}
