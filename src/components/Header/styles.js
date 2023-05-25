@@ -27,7 +27,7 @@ export const Container = styled.header`
 			background-color: #000d12;
 			top: 80px;
 			left: 0;
-			z-index: 5;
+			z-index: 999;
 			transform: translateX(-100%);
 			opacity: 0;
 			transition: all 0.3s;

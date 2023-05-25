@@ -67,13 +67,12 @@ export const Container = styled.div`
 			.buyWrapper {
 				display: flex;
 				justify-content: center;
+				width: 100%;
 				margin: 0 auto;
-				button {
-					width: 100%;
+
+				.buy-button {
+					max-width: 10rem !important;
 				}
-				/* button:nth-child(2) {
-					font-size: clamp(0.9rem, 0.2818rem + 2.0909vw, 1.4rem);
-				} */
 			}
 		}
 

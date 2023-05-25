@@ -1,7 +1,7 @@
-import { useAuth } from '../../hooks/auth'
-
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+
+import { useAuth } from '../../hooks/auth'
 
 import { Button } from '../Button'
 import { ButtonText } from '../ButtonText'
@@ -14,16 +14,27 @@ import { Container } from './styles'
 import { BsHexagonFill, BsReceipt, BsSearch } from 'react-icons/bs'
 import { RxExit } from 'react-icons/rx'
 
-export function Header() {
+export function Header({ onChange, isSearch }) {
 	const [menuOpen, setMenuOpen] = useState()
+	const [cartQuantity, setCartQuantity] = useState(0)
 
-	const { signOut, user } = useAuth()
+	const { signOut } = useAuth()
 	const navigate = useNavigate()
 
 	function handleSignOut() {
 		signOut()
 		navigate('/')
 	}
+
+	useEffect(() => {
+		const getCartQuantity = () => {
+			const cart = JSON.parse(localStorage.getItem('@foodexplorer:cart'))
+			if (cart) {
+				setCartQuantity(cart.length)
+			}
+		}
+		getCartQuantity()
+	}, [cartQuantity])
 
 	return (
 		<Container>
@@ -42,13 +53,20 @@ export function Header() {
 					</div>
 
 					<div className={menuOpen ? 'nav-menu open' : 'nav-menu'}>
-						<div className="search">
-							<BsSearch
-								size={20}
-								color="#C4C4CC"
-							/>
-							<Input placeholder="Busque por pratos ou ingredientes" />
-						</div>
+						{isSearch ? (
+							<div className="search">
+								<BsSearch
+									size={20}
+									color="#C4C4CC"
+								/>
+								<Input
+									placeholder="Busque por pratos ou ingredientes"
+									onChange={onChange}
+								/>
+							</div>
+						) : (
+							<></>
+						)}
 
 						<ButtonText
 							title="Meus favoritos"
@@ -95,19 +113,26 @@ export function Header() {
 							className="mobile-cart-count"
 							onClick={() => navigate('/cart')}
 						/>
-						<p>10</p>
+						<p>{cartQuantity}</p>
 					</div>
 				)}
 
-				<div
-					className="search"
-					id="search">
-					<BsSearch
-						size={20}
-						color="#C4C4CC"
-					/>
-					<Input placeholder="Busque por pratos ou ingredientes" />
-				</div>
+				{isSearch ? (
+					<div
+						className="search"
+						id="search">
+						<BsSearch
+							size={20}
+							color="#C4C4CC"
+						/>
+						<Input
+							placeholder="Busque por pratos ou ingredientes"
+							onChange={onChange}
+						/>
+					</div>
+				) : (
+					<></>
+				)}
 
 				<div className="favorites">
 					<ButtonText
@@ -125,7 +150,7 @@ export function Header() {
 
 				<div className="cart">
 					<Button
-						title="Pedidos"
+						title={`Pedidos (${cartQuantity}) `}
 						Icon={BsReceipt}
 						onClick={() => navigate('/cart')}
 					/>

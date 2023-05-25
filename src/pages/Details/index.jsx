@@ -20,6 +20,7 @@ import { BsChevronLeft, BsReceipt } from 'react-icons/bs'
 export function Details() {
 	const [data, setData] = useState(null)
 	const [plateImage, setPlateImage] = useState(null)
+	const [quantityPlate, setQuantityPlate] = useState(1)
 
 	const { user } = useAuth()
 	const isAdmin = user.isAdmin === 1 ? true : false
@@ -29,6 +30,32 @@ export function Details() {
 
 	function handleBack() {
 		navigate(-1)
+	}
+
+	function handleQuantityChange(newQuantity) {
+		setQuantityPlate(newQuantity)
+	}
+
+	function handleAddCart() {
+		let cart = localStorage.getItem('@foodexplorer:cart')
+		if (!cart) {
+			cart = []
+		} else {
+			cart = JSON.parse(cart)
+		}
+		const plate = {
+			id: params.id,
+			quantity: quantityPlate,
+		}
+		let cartFiltered = cart.find((plates) => plates.id === plate.id)
+
+		if (!cartFiltered) {
+			cart.push(plate)
+			const cartString = JSON.stringify(cart)
+			localStorage.setItem('@foodexplorer:cart', cartString)
+			return alert('Prato adicionado ao carrinho com sucesso')
+		}
+		return alert('O prato ja esta adicionado ao seu carrinho')
 	}
 
 	useEffect(() => {
@@ -88,11 +115,13 @@ export function Details() {
 								</div>
 							) : (
 								<div className="buyWrapper">
-									<QuantityBox />
+									<QuantityBox onChange={handleQuantityChange} />
 									<Button
+										className="buy-Button"
 										title="pedir"
 										Icon={BsReceipt}
 										price={data.price}
+										onClick={handleAddCart}
 									/>
 								</div>
 							)}
