@@ -2,7 +2,6 @@ import { Input } from '../../../../components/Input'
 import { Button } from '../../../../components/Button'
 
 export function SecondTab() {
-	
 	return (
 		<div className="SecondTab">
 			<form id="credit-card-payment">
@@ -20,7 +19,7 @@ export function SecondTab() {
 						placeholder="000"
 					/>
 				</fieldset>
-				<Button title="Finalizar Pagamento" onClick={} />
+				<Button title="Finalizar Pagamento" />
 			</form>
 		</div>
 	)
