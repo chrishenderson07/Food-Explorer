@@ -36,6 +36,11 @@ export const Container = styled.div`
 			flex-direction: column;
 			gap: 4.8rem;
 		}
+
+		.total-cart {
+			font-weight: 500;
+			font-size: 2rem;
+		}
 	}
 `
 
@@ -56,8 +61,15 @@ export const Plate = styled.div`
 			cursor: pointer;
 		}
 
+		h3 {
+			font-size: 1.2rem;
+			color: ${({ theme }) => theme.COLORS.LIGHT_500};
+			font-weight: 400;
+		}
+
 		.lineTitle {
 			display: flex;
+			align-items: center;
 			gap: 1rem;
 		}
 

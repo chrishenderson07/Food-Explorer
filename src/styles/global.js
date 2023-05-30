@@ -38,6 +38,9 @@ export default createGlobalStyle`
     font-size: ${({ theme }) => theme.FONTS_SIZE.H2}; 
     line-height: 140%;
   }
+  h3 {
+    font-family: ${({ theme }) => theme.FONTS.POPPINS_300};
+  }
 
   p {
     font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
