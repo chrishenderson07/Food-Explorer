@@ -6,7 +6,7 @@
 
 </h5>
 
-## :triangular_flag_on_post: Sumário
+## :triangular_flag_on_post: Summary
 
 - [Attention](#warning-attention)
 - [What is Food Explorer?](#spaghetti-what-is-food-explorer)
@@ -25,7 +25,7 @@ Food Explorer é uma aplicação fictícia para um site de restaurante. Aonde o 
 - Cliente: O cliente tem acesso a home, aonde pode buscar um prato pelo nome, ver cada prato de forma detalhada e pode também adicionar o prato aos favoritos ou carrinho.
 - Administrador: O administrador tem os mesmos acessos que o cliente. Porém ele pode além de ver os detalhes do prato, edita-lo, adicionar novos pratos e visualizar todos os pedidos feitos no site.
 
-<img src="./public/apresentacao-mobile.gif" width="300px" alt="Capa do Food Explorer">#
+<img src="./public/apresentacao-mobile.gif" width="300px" alt="Capa do Food Explorer">
 
 ## :desktop_computer: Features
 
@@ -112,4 +112,5 @@ $npm run dev
 
 ## 📜 Author
 
-Feito com muito :heart: por Christopher Henderson. Vamos trabalhar juntos? ![https://github.com/chrishenderson07/Food-Explorer](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) ![https://www.linkedin.com/in/christopher-henderson-633495241/](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
+Feito com muito :heart: por Christopher Henderson. Vamos trabalhar juntos?
+![https://github.com/chrishenderson07/Food-Explorer](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) ![https://www.linkedin.com/in/christopher-henderson-633495241/](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
