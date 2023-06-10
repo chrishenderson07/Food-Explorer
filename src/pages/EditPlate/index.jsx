@@ -24,9 +24,9 @@ export function EditPlate() {
 	const isAdmin = user.isAdmin === 1 ? true : false
 
 	const [data, setData] = useState({})
-	const [title, setTitle] = useState()
-	const [description, setDescription] = useState()
-	const [price, setPrice] = useState()
+	const [title, setTitle] = useState('')
+	const [description, setDescription] = useState('')
+	const [price, setPrice] = useState(0)
 	const [categories, setCategories] = useState()
 
 	const [plateImage, setPlateImage] = useState(null)
@@ -73,22 +73,29 @@ export function EditPlate() {
 		setPlateImage(imagePreview)
 	}
 
-	function handleEditPlate() {
-		if (!plateImage || !title || !description || !price) {
+	async function handleEditPlate() {
+		if (!title || !price || !description) {
 			return alert('Preencha todos os campos!')
+		}
+
+		if (!plateImage) {
+			return alert('Insira a imagem do prato')
 		}
 
 		if (newIngredient.length > 0) {
 			return alert('Um ingrediente ficou pendente a ser adicionado')
 		}
 
-		api.put(`plates/${params.id}`, {
+		const infoUpdate = {
 			title,
 			description,
 			categories,
 			price,
 			ingredients,
-		})
+		}
+
+		api.put(`plates/${params.id}`, infoUpdate)
+
 		const formData = new FormData()
 		formData.append('image', plateImage)
 
@@ -119,6 +126,12 @@ export function EditPlate() {
 			setIngredients(
 				response.data.ingredients.map((ingredient) => ingredient.name),
 			)
+
+			setTitle(response.data.title)
+			setDescription(response.data.description)
+			setPrice(response.data.price)
+			setFileName(response.data.image)
+			// setPlateImage(`${api.defaults.baseURL}/files/${fileName}`)
 		}
 		fetchData()
 		userUnauthorized()
@@ -143,6 +156,7 @@ export function EditPlate() {
 					<div className="line">
 						<InputImage
 							onChange={handleFileInputChange}
+							filename={fileName}
 							title={fileName ? fileName : 'Selecione uma imagem'}
 						/>
 						<Input
@@ -150,7 +164,7 @@ export function EditPlate() {
 							title="Nome"
 							placeholder="Ex.: Salada Ceasar"
 							onChange={(e) => setTitle(e.target.value)}
-							value={title ? title : data.title}
+							value={title}
 						/>
 
 						<div className="selectBox">
@@ -191,11 +205,11 @@ export function EditPlate() {
 						</div>
 
 						<Input
-							type="number"
+							// type="number"
 							title="Preço"
 							placeholder="R$ 00,00"
 							className="price"
-							value={price ? price : data.price}
+							value={price}
 							onChange={(e) => {
 								setPrice(e.target.value)
 							}}

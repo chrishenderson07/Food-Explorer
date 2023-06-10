@@ -41,6 +41,26 @@ export const Container = styled.div`
 			font-weight: 500;
 			font-size: 2rem;
 		}
+
+		.cartEmpty {
+			height: 80%;
+			display: grid;
+			place-content: center;
+
+			svg {
+				font-size: 12.8rem;
+				color: ${({ theme }) => theme.COLORS.LIGHT_200};
+				opacity: 0.8;
+				margin: 0 auto;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.cart-infos {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+			}
+		}
 	}
 `
 

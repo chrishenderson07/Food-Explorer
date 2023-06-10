@@ -44,7 +44,7 @@ export function Details() {
 			cart = JSON.parse(cart)
 		}
 		const plate = {
-			id: params.id,
+			id: Number(params.id),
 			quantity: quantityPlate,
 		}
 		let cartFiltered = cart.find((plates) => plates.id === plate.id)

@@ -7,7 +7,7 @@ import { TransitionTab } from '../TransitionTab'
 import { MdPix, MdCreditCard } from 'react-icons/md'
 
 import { Container } from './styles'
-export function Tabs({ PaymentStart }) {
+export function Tabs({ plateCart, setPlateCart, totalCart }) {
 	const [activeTab, setActiveTab] = useState('tab1')
 	const [paymentStart, setPaymentStart] = useState(false)
 
@@ -21,8 +21,6 @@ export function Tabs({ PaymentStart }) {
 
 	return (
 		<Container className="Tabs">
-			{/* <div className="Tabs"> */}
-			{/* Tab nav */}
 			<ul className="nav">
 				<li
 					className={activeTab === 'tab1' ? 'active' : ''}
@@ -38,10 +36,16 @@ export function Tabs({ PaymentStart }) {
 				</li>
 			</ul>
 			<div className="outlet">
-				{/* content will be shown here */}
-				{activeTab === 'tab1' ? <FirstTab /> : <SecondTab />}
+				{activeTab === 'tab1' ? (
+					<FirstTab />
+				) : (
+					<SecondTab
+						setPlateCart={setPlateCart}
+						plateCart={plateCart}
+						totalCart={totalCart}
+					/>
+				)}
 			</div>
-			{/* </div> */}
 		</Container>
 	)
 }

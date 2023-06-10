@@ -11,6 +11,7 @@ import { Wrapper } from '../../components/Wrapper'
 import { ButtonText } from '../../components/ButtonText'
 
 import { BsChevronLeft } from 'react-icons/bs'
+import { TbStarOff } from 'react-icons/tb'
 import { Container, Plate } from './styles'
 
 export function Favorites() {
@@ -23,6 +24,8 @@ export function Favorites() {
 
 	async function handleRemoveFavorites(plate_id) {
 		await api.delete('/favorites', { data: { plate_id: plate_id } })
+		const newPlates = dataPlates.filter((plate) => plate.id !== plate_id)
+		setDataPlates(newPlates)
 		return
 	}
 
@@ -67,32 +70,39 @@ export function Favorites() {
 				/>
 				<h2>Meus Favoritos</h2>
 
-				<div className="platesWrapper">
-					{dataPlates.map((plate) => {
-						api.get(`/plates/${plate.id}`)
-						const image = `${api.defaults.baseURL}/files/${plate.image}`
-						return (
-							<Plate key={plate.id}>
-								<img
-									src={image}
-									alt={`Foto do Prato ${plate.title}`}
-									onClick={() => handleDetailPlate(plate.id)}
-								/>
-
-								<div className="infoPlate">
-									<h2 onClick={() => handleDetailPlate(plate.id)}>
-										{plate.title}
-									</h2>
-									<ButtonText
-										className="removeFav"
-										title="Remover dos Favoritos"
-										onClick={() => handleRemoveFavorites(plate.id)}
+				{dataPlates.length > 0 ? (
+					<div className="platesWrapper">
+						{dataPlates.map((plate) => {
+							api.get(`/plates/${plate.id}`)
+							const image = `${api.defaults.baseURL}/files/${plate.image}`
+							return (
+								<Plate key={plate.id}>
+									<img
+										src={image}
+										alt={`Foto do Prato ${plate.title}`}
+										onClick={() => handleDetailPlate(plate.id)}
 									/>
-								</div>
-							</Plate>
-						)
-					})}
-				</div>
+
+									<div className="infoPlate">
+										<h2 onClick={() => handleDetailPlate(plate.id)}>
+											{plate.title}
+										</h2>
+										<ButtonText
+											className="removeFav"
+											title="Remover dos Favoritos"
+											onClick={() => handleRemoveFavorites(plate.id)}
+										/>
+									</div>
+								</Plate>
+							)
+						})}
+					</div>
+				) : (
+					<div className="favEmpty">
+						<h2>Você ainda não adicionou pratos aos favoritos</h2>
+						<TbStarOff />
+					</div>
+				)}
 			</Wrapper>
 			<Footer />
 		</Container>

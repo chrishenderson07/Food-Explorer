@@ -14,7 +14,7 @@ import { Container } from './styles'
 import { BsHexagonFill, BsSearch } from 'react-icons/bs'
 import { RxExit } from 'react-icons/rx'
 
-export function HeaderAdm() {
+export function HeaderAdm({ onChange, isSearch }) {
 	const [menuOpen, setMenuOpen] = useState()
 
 	const { signOut } = useAuth()
@@ -42,13 +42,20 @@ export function HeaderAdm() {
 					</div>
 
 					<div className={menuOpen ? 'nav-menu open' : 'nav-menu'}>
-						<div className="search">
-							<BsSearch
-								size={20}
-								color="#C4C4CC"
-							/>
-							<Input placeholder="Busque por pratos ou ingredientes" />
-						</div>
+						{isSearch ? (
+							<div className="search">
+								<BsSearch
+									size={20}
+									color="#C4C4CC"
+								/>
+								<Input
+									placeholder="Busque por pratos ou ingredientes"
+									onChange={onChange}
+								/>
+							</div>
+						) : (
+							<></>
+						)}
 
 						<ButtonText
 							title="Novo Prato"
@@ -87,7 +94,10 @@ export function HeaderAdm() {
 						size={20}
 						color="#C4C4CC"
 					/>
-					<Input placeholder="Busque por pratos ou ingredientes" />
+					<Input
+						placeholder="Busque por pratos ou ingredientes"
+						onChange={onChange}
+					/>
 				</div>
 
 				<div className="newPlate">

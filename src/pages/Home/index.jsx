@@ -6,6 +6,7 @@ import { useAuth } from '../../hooks/auth'
 import { useNavigate } from 'react-router-dom'
 
 import Carousel from '@itseasy21/react-elastic-carousel'
+import { useSpring, animated, easings } from '@react-spring/web'
 
 import { Header } from '../../components/Header'
 import { HeaderAdm } from '../../components/HeaderAdm'
@@ -16,7 +17,15 @@ import { Wrapper } from '../../components/Wrapper'
 
 import { Container, Content } from './styles'
 
-import donutsImg from '../../assets/imageHome.png'
+import MainDonutImage from '../../assets/donuts/Camada 10.png'
+import Mertilo1 from '../../assets/donuts/Camada 2.png'
+import Mertilo2 from '../../assets/donuts/Camada 5.png'
+import Mertilo3 from '../../assets/donuts/Camada 6.png'
+import Mertilo4 from '../../assets/donuts/Camada 8.png'
+import Framboesa1 from '../../assets/donuts/Camada 3.png'
+import Framboesa2 from '../../assets/donuts/Camada 7.png'
+import Folha1 from '../../assets/donuts/Camada 4.png'
+import Folha2 from '../../assets/donuts/Camada 9.png'
 
 export function Home() {
 	const navigate = useNavigate()
@@ -27,6 +36,66 @@ export function Home() {
 		{ width: 910, itemsToShow: 3 },
 		{ width: 1200, itemsToShow: 4 },
 	]
+
+	const customEasing = (t) => {
+		return t * (2 - t)
+	}
+
+	const easeInOutBack = (x) => {
+		return -(Math.cos(Math.PI * x) - 1) / 2
+	}
+
+	const styles = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: 0 },
+		to: { y: 20 },
+		config: { duration: 2000, easing: easeInOutBack },
+	})
+
+	const leaf2 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: -20 },
+		to: { y: 0 },
+		config: { duration: 3000, easing: easeInOutBack },
+	})
+
+	const mertilo4 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: 20 },
+		to: { y: 0 },
+		config: { duration: 2000, easing: easeInOutBack },
+	})
+	const mertilo1 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: -10 },
+		to: { y: 0 },
+		config: { duration: 2000, easing: easeInOutBack },
+	})
+	const mertilo3 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: -10 },
+		to: { y: 0 },
+		config: { duration: 1000, easing: easeInOutBack },
+	})
+	const framboesa1 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: -30 },
+		to: { y: 0 },
+		config: { duration: 4000, easing: easeInOutBack },
+	})
+	const framboesa2 = useSpring({
+		reset: true,
+		loop: { reverse: true },
+		from: { y: 40 },
+		to: { y: 0 },
+		config: { duration: 3000, easing: easeInOutBack },
+	})
 
 	const [mainPlates, setMainPlates] = useState([])
 	const [dessertsPlates, setDessertsPlates] = useState([])
@@ -58,9 +127,22 @@ export function Home() {
 	useEffect(() => {
 		async function fetchPlates() {
 			{
-				search
 				const response = await api.get(`/plates/?title=${search}`)
 				renderPlate(response)
+
+				const favorites = await api.get('/favorites')
+				const favoritesPlate = favorites.data
+				const favoritesId = favoritesPlate.map((favorite) => favorite.plate_id)
+
+				const filteredFavoritesInPlates = response.data.filter((plate) =>
+					favoritesId.includes(plate.id),
+				)
+
+				filteredFavoritesInPlates.forEach((favorite) => {
+					favorite.isFavorite = true
+				})
+
+				console.log(filteredFavoritesInPlates)
 			}
 		}
 		fetchPlates()
@@ -69,7 +151,12 @@ export function Home() {
 	return (
 		<Container>
 			{isAdmin ? (
-				<HeaderAdm />
+				<HeaderAdm
+					isSearch
+					onChange={(e) => {
+						setSearch(e.target.value)
+					}}
+				/>
 			) : (
 				<Header
 					isSearch
@@ -83,12 +170,122 @@ export function Home() {
 				<Content>
 					<div className="main-banner">
 						<div className="bg-banner">
-							<div className="donuts">
+							<div className="float-ingredients">
 								<img
-									src={donutsImg}
-									alt="Imagem do Banner"
+									src={MainDonutImage}
+									className="mainDonut"
 								/>
+
+								<animated.div
+									className="mertilo2"
+									style={{
+										transform: mertilo1.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Mertilo2}
+										alt="Imagem do Banner"
+										className="mertilo"
+									/>
+								</animated.div>
+
+								<animated.div
+									className="framboesa1"
+									style={{
+										transform: framboesa1.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Framboesa1}
+										alt="Imagem do Banner"
+										className="framboesa"
+									/>
+								</animated.div>
+
+								<animated.div
+									className="mertilo3"
+									style={{
+										transform: mertilo3.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Mertilo3}
+										alt="Imagem do Banner"
+										className="mertilo"
+									/>
+								</animated.div>
+								<animated.div
+									className="mertilo1"
+									style={{
+										transform: mertilo1.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Mertilo1}
+										className="mertilo"
+									/>
+								</animated.div>
+
+								<animated.div
+									style={{
+										transform: styles.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}
+									className="folhamove">
+									<img
+										src={Folha1}
+										className="folha"
+									/>
+								</animated.div>
+
+								<animated.div
+									className="framboesa2"
+									style={{
+										transform: framboesa2.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Framboesa2}
+										className="framboesa"
+									/>
+								</animated.div>
+								<animated.div
+									className="folhamove2"
+									style={{
+										transform: leaf2.y.interpolate((y) => `translateY(${y}px)`),
+									}}>
+									<img
+										src={Folha2}
+										className="folha"
+									/>
+								</animated.div>
+
+								<animated.div
+									className="mertilo4"
+									style={{
+										transform: mertilo4.y.interpolate(
+											(y) => `translateY(${y}px)`,
+										),
+									}}>
+									<img
+										src={Mertilo4}
+										className="mertilo"
+									/>
+								</animated.div>
 							</div>
+							{/* <div className="donuts">
+								<img
+									src={MainDonutImage}
+									alt="Imagem do Banner"
+									className="mainDonut"
+								/>
+							</div> */}
 							<div className="banner-info">
 								<h1>Sabores inigualáveis</h1>
 								<p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
@@ -107,7 +304,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${plate.image}`}
 												title={`${plate.title}`}
-												description={plate.description.substring(0, 70)}
+												description={plate.description.substring(0, 68) + '...'}
 												price={`R$ ${plate.price}`}
 												key={plate.id}
 												id={plate.id}
@@ -128,7 +325,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${plate.image}`}
 												title={`${plate.title}`}
-												description={plate.description.substring(0, 70)}
+												description={plate.description.substring(0, 68) + '...'}
 												price={`R$ ${plate.price}`}
 												key={plate.id}
 												id={plate.id}
@@ -160,7 +357,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${plate.image}`}
 												title={`${plate.title}`}
-												description={plate.description.substring(0, 70)}
+												description={plate.description.substring(0, 68) + '...'}
 												price={`R$ ${plate.price}`}
 												key={plate.id}
 												id={plate.id}
@@ -181,7 +378,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${plate.image}`}
 												title={`${plate.title}`}
-												description={plate.description.substring(0, 70)}
+												description={plate.description.substring(0, 68) + '...'}
 												price={`R$ ${plate.price}`}
 												key={plate.id}
 												id={plate.id}
@@ -213,7 +410,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${drink.image}`}
 												title={`${drink.title}`}
-												description={drink.description.substring(0, 70)}
+												description={drink.description.substring(0, 68) + '...'}
 												price={`R$ ${drink.price}`}
 												key={drink.id}
 												id={drink.id}
@@ -234,7 +431,7 @@ export function Home() {
 											<Card
 												img={`${api.defaults.baseURL}/files/${drink.image}`}
 												title={`${drink.title}`}
-												description={drink.description.substring(0, 70)}
+												description={drink.description.substring(0, 68) + '...'}
 												price={`R$ ${drink.price}`}
 												key={drink.id}
 												id={drink.id}

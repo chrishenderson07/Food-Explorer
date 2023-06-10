@@ -37,6 +37,19 @@ export const Container = styled.div`
 			gap: 4.8rem;
 		}
 
+		.favEmpty {
+			height: 80%;
+			display: grid;
+			place-content: center;
+
+			svg {
+				font-size: 12.8rem;
+				color: ${({ theme }) => theme.COLORS.LIGHT_200};
+				opacity: 0.8;
+				margin: 0 auto;
+			}
+		}
+
 		@media (max-width: 768px) {
 			.platesWrapper {
 				grid-template-columns: repeat(2, auto);

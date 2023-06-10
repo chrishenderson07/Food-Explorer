@@ -7,7 +7,6 @@ export const Container = styled.header`
 	background-color: ${({ theme }) => theme.COLORS.DARK_700};
 	color: white;
 	padding: 2.6rem;
-	height: 10.4rem;
 	grid-area: 'header';
 
 	> nav {
@@ -130,7 +129,7 @@ export const Container = styled.header`
 			gap: 3.2rem;
 
 			display: grid;
-			grid-template-areas: 'logo search search search favorites orders button exit';
+			grid-template-areas: 'logo search search search search favorites button exit';
 
 			#search {
 				display: flex;

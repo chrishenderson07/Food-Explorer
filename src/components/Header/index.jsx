@@ -74,11 +74,11 @@ export function Header({ onChange, isSearch }) {
 							onClick={() => navigate('/favorites')}
 						/>
 
-						<ButtonText
+						{/* <ButtonText
 							className="textOrders"
 							title="Histórico de Pedidos"
 							onClick={() => navigate('/orders')}
-						/>
+						/> */}
 
 						<ButtonText
 							title="Sair"
@@ -141,12 +141,12 @@ export function Header({ onChange, isSearch }) {
 					/>
 				</div>
 
-				<div className="orders">
+				{/* <div className="orders">
 					<ButtonText
 						title="Histórico de Pedidos"
 						onClick={() => navigate('/orders')}
 					/>
-				</div>
+				</div> */}
 
 				<div className="cart">
 					<Button

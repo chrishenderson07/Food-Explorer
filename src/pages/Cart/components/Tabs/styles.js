@@ -2,14 +2,17 @@ import styled from 'styled-components'
 export const Container = styled.div`
 	max-width: 53rem;
 	min-width: 32rem;
+
 	height: 53rem;
 	border-radius: 8px;
 	border: solid 1px ${({ theme }) => theme.COLORS.LIGHT_600};
 
 	.FirstTab {
-		text-align: center;
+		display: flex;
+		justify-content: center;
+		height: 40rem;
 		svg {
-			margin-top: 2rem;
+			margin-top: 4rem;
 			color: ${({ theme }) => theme.COLORS.LIGHT_600};
 			width: 70%;
 			height: 70%;
@@ -17,11 +20,9 @@ export const Container = styled.div`
 	}
 
 	.SecondTab {
-		height: 40rem;
+		padding: 2rem;
+		min-height: 40rem;
 		display: flex;
-		/* flex-direction: column;
-		justify-content: center;
-		align-items: center; */
 
 		form {
 			width: 90%;

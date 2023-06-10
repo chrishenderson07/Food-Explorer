@@ -76,7 +76,7 @@ export function SignUp() {
 					/>
 
 					<Button
-						title="Entrar"
+						title="Cadastrar"
 						onClick={handleSignUp}
 					/>
 					<ButtonText
