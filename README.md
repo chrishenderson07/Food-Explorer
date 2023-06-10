@@ -1,11 +1,10 @@
 <h1 align="center"> 🍽️ Food Explorer - Frontend </h1>
 
-<h4 align="center">
+<h5 align="center">
     <a href="https://food-explorer-2022.netlify.app/"> <img src="./public/apresentacao-desktop.gif" alt="Capa do Food Explorer"></a>
-
     Clique na imagem para ver o deploy do projeto
 
-</h4>
+</h5>
 
 ## :triangular_flag_on_post: Sumário
 
@@ -19,8 +18,6 @@
 
 Essa aplicação esta concluída. Porém por se tratar de uma primeira versão está em constantes melhorias. E por estar em um serviço de deploy gratuito pode apresentar lentidão entre os carregamentos. Por favor seja paciente :hugs:
 
-#
-
 ## :spaghetti: What is Food Explorer?
 
 Food Explorer é uma aplicação fictícia para um site de restaurante. Aonde o cliente pode de forma simulada escolher seus pratos favoritos e compra-los. Por outro lado o Administrador pode adicionar novos pratos, editar pratos ja existentes e receber as compras feitas do lado do cliente.
@@ -28,9 +25,7 @@ Food Explorer é uma aplicação fictícia para um site de restaurante. Aonde o 
 - Cliente: O cliente tem acesso a home, aonde pode buscar um prato pelo nome, ver cada prato de forma detalhada e pode também adicionar o prato aos favoritos ou carrinho.
 - Administrador: O administrador tem os mesmos acessos que o cliente. Porém ele pode além de ver os detalhes do prato, edita-lo, adicionar novos pratos e visualizar todos os pedidos feitos no site.
 
- <img src="./public/apresentacao-mobile.gif" width="300px" alt="Capa do Food Explorer">
-
-#
+<img src="./public/apresentacao-mobile.gif" width="300px" alt="Capa do Food Explorer">#
 
 ## :desktop_computer: Features
 
@@ -56,8 +51,6 @@ Food Explorer é uma aplicação fictícia para um site de restaurante. Aonde o 
 - [x] Excluir Pratos
 - [x] Ver pedidos feitos
 
-#
-
 ## :atom_symbol: Built With
 
 [![My Skills](https://skillicons.dev/icons?i=vite,js,react,styledcomponents,git,github)](https://skillicons.dev)
@@ -70,8 +63,6 @@ Food Explorer é uma aplicação fictícia para um site de restaurante. Aonde o 
 - **Javascript** - Para a toda a lógica da aplicação
 - **Styled Components** - Utilizado para estilizar a aplicação
 - **Axios** - Utilizado para fazer as requisições para o backend
-
-#
 
 ## :arrow_forward: Usage
 
@@ -118,8 +109,6 @@ $npm run dev
 ```
 
 - Agora abra seu navegador no endereço que foi informado no "`Local`" para testar a aplicação.
-
-#
 
 ## 📜 Author
 
