@@ -1,7 +1,7 @@
 <h1 align="center"> 🍽️ Food Explorer - Frontend </h1>
 
 <h5 align="center">
-    <a href="https://food-explorer-2022.netlify.app/"> <img src="./public/apresentacao-desktop.gif" alt="Capa do Food Explorer"></a>
+    <a href="https://food-explorer-2022.netlify.app/"> <img src="./public/apresentacao-desktop.gif" alt="Capa do Food Explorer"></a><br>
     Clique na imagem para ver o deploy do projeto
 
 </h5>
@@ -112,5 +112,5 @@ $npm run dev
 
 ## 📜 Author
 
-Feito com muito :heart: por Christopher Henderson. Vamos trabalhar juntos?
+Feito com muito :heart: por Christopher Henderson. Vamos trabalhar juntos?<br>
 ![https://github.com/chrishenderson07/Food-Explorer](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) ![https://www.linkedin.com/in/christopher-henderson-633495241/](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
