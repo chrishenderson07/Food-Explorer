@@ -46,6 +46,7 @@ export const Container = styled.div`
 			height: 80%;
 			display: grid;
 			place-content: center;
+			text-align: center;
 
 			svg {
 				font-size: 12.8rem;

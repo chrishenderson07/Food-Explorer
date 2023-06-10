@@ -12,7 +12,7 @@ export const Container = styled.div`
 	.content {
 		width: 100%;
 		margin: 0 auto;
-		padding: 6.4rem;
+		padding: 6.4rem 2rem;
 
 		display: flex;
 		flex-direction: column;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 
 			font-family: ${({ theme }) => theme.FONTS.ROBOTO_500};
 			font-weight: 700;
-			font-size: 3.7rem;
+			font-size: 2.8rem;
 
 			> svg {
 				fill: #065e7c;
@@ -50,6 +50,7 @@ export const Container = styled.div`
 
 			> div:first-child {
 				flex: 1;
+				font-size: 4.2rem;
 			}
 
 			> .signup {
@@ -64,6 +65,10 @@ export const Container = styled.div`
 					display: block;
 					text-align: center;
 					font-weight: 500;
+				}
+
+				h3 {
+					font-size: 3.7rem;
 				}
 			}
 		}
