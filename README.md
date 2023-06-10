@@ -1,16 +1,19 @@
 <h1 align="center"> 🍽️ Food Explorer - Frontend </h1>
 
-<h1 align="center" >
-    <img src="./public/apresentacao-desktop.gif" alt="Capa do Food Explorer">
-</h1>
+<h4 align="center">
+    <a href="https://food-explorer-2022.netlify.app/"> <img src="./public/apresentacao-desktop.gif" alt="Capa do Food Explorer"></a>
+
+    Clique na imagem para ver o deploy do projeto
+
+</h4>
 
 ## :triangular_flag_on_post: Sumário
 
-- [Attention](#attention)
-- [What is Food Explorer?](#what-is-food-explorer)
-- [Features](#features)
-- [Built With](#built-with)
-- [Usage](#usage)
+- [Attention](#warning-attention)
+- [What is Food Explorer?](#spaghetti-what-is-food-explorer)
+- [Features](#desktop_computer-features)
+- [Built With](#atom_symbol-built-with)
+- [Usage](#arrow_forward-usage)
 
 ## :warning: Attention
 
